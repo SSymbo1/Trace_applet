@@ -1,6 +1,4 @@
 <script setup>
-import { ref } from "vue";
-
 const openQrScanner = () => {
   uni.scanCode({
     scanType: ["qrCode"],
@@ -14,10 +12,15 @@ const openQrScanner = () => {
 };
 
 const onScanQrCodeSuccess = (data) => {
-  uni.vibrateShort();
-  uni.navigateTo({
-    url: `/pages/trace/trace_info?trace=${data.result}`
-  });
+  let regex = /^trace-/;
+  if (regex.test(data.result)) {
+    uni.vibrateShort();
+    uni.navigateTo({
+      url: `/pages/trace/trace_info?trace=${data.result}`,
+    });
+  } else {
+    uni.showToast({ title: "无效的二维码", icon: "error" });
+  }
 };
 </script>
 
@@ -90,7 +93,6 @@ const onScanQrCodeSuccess = (data) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500rpx;
   width: 100%;
 }
 .footer {

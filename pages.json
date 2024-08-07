@@ -5,7 +5,6 @@
 			"style": {
 				"navigationBarTitleText": "重要产品溯源系统",
 				"usingComponents": {
-					"van-button": "/wxcomponents/vant/dist/button/index",
 					"van-image": "/wxcomponents/vant/dist/image/index"
 				}
 			}
@@ -13,7 +12,13 @@
 		{
 			"path": "pages/trace/trace_info",
 			"style": {
-				"navigationBarTitleText": "产品溯源信息"
+				"navigationBarTitleText": "产品溯源信息",
+				"usingComponents": {
+					"van-card": "/wxcomponents/vant/dist/card/index",
+					"van-cell": "/wxcomponents/vant/dist/cell/index",
+					"van-cell-group": "/wxcomponents/vant/dist/cell-group/index",
+					"van-divider": "/wxcomponents/vant/dist/divider/index"
+				}
 			}
 		}
 	],
